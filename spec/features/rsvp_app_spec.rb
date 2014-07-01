@@ -21,6 +21,7 @@ feature "Homepage" do
     select("2", :from => "number_of_guests")
     choose("Fish")
     click_button "RSVP"
+    expect(page).to have_content("Thanks for RSVPing!")
   end
 end
 
