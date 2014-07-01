@@ -7,5 +7,20 @@ feature "Homepage" do
     expect(page).to have_content("RSVP App")
     expect(page).to have_link("RSVP", :href => "/rsvps/new" )
   end
+
+  scenario "user clicks the 'RSVP' link" do
+    visit "/"
+    click_link("RSVP")
+  end
+
+  scenario "user fills in RSVP form" do
+    visit "/rsvps/new"
+    fill_in "name", with: "Luke Example"
+    fill_in "email", with: "lucasmccomb@example.com"
+    fill_in "email", with: "lucasmccomb@example.com"
+    select("2", :from => "number_of_guests")
+    choose("Fish")
+    click_button "RSVP"
+  end
 end
 
